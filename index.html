@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Prompt Bridge</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Local Prompt Bridge</h1>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">Server:</span>
+                    <span id="server-status" class="status-indicator online">●</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">WebSim:</span>
+                    <span id="websim-status" class="status-indicator connecting">●</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Clients:</span>
+                    <span id="client-count">1</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="connection-info">
+                <h3>📡 Connection Info</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Desktop URL:</strong>
+                        <code id="desktop-url">http://localhost:3000</code>
+                    </div>
+                    <div class="info-item">
+                        <strong>Mobile URL:</strong>
+                        <code id="mobile-url">Detecting...</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prompt-section">
+                <h3>💬 Send Prompt to WebSim</h3>
+                <div class="input-group">
+                    <textarea 
+                        id="prompt-input" 
+                        placeholder="Enter your prompt for WebSim.ai..."
+                        rows="4"
+                    ></textarea>
+                    <div class="button-group">
+                        <button id="send-btn" class="btn btn-primary">
+                            <span class="btn-text">Send Prompt</span>
+                            <span class="btn-loading">Sending...</span>
+                        </button>
+                        <button id="voice-btn" class="btn btn-voice">
+                            <span class="btn-text">🎤 Voice</span>
+                            <span class="btn-listening">🔴 Listening...</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="status-message" class="status-message"></div>
+            </div>
+
+            <div class="recent-prompts">
+                <h3>📝 Recent Prompts</h3>
+                <div id="prompt-history" class="prompt-history">
+                    <p class="no-prompts">No prompts sent yet</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>🔗 Bridge your devices to WebSim.ai</p>
+                <div class="download-section">
+                    <button id="download-btn" class="btn btn-secondary">
+                        📦 Download App
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="client.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
